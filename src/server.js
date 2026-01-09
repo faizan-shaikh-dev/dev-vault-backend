@@ -7,7 +7,7 @@ connectDB();
 
 const PORT = process.env.PORT;
 
-app.listen(PORT, (req, res)=>{
+app.listen(PORT, ()=>{
     console.log(`http://localhost:${PORT}`);
     
 });
