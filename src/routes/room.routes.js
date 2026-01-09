@@ -5,6 +5,7 @@ import {
   getRoomById,
   updateCode,
   getAllRooms,
+  deleteRoom
 } from "../controllers/room.controller.js";
 
 const router = express.Router();
@@ -23,5 +24,9 @@ router.get("/:roomId", getRoomById);
 
 //UPDATE CODE
 router.put("/:roomId/code", updateCode);
+
+//Delete Room
+router.delete("/:roomId", deleteRoom);
+
 
 export default router;

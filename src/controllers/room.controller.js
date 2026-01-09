@@ -88,3 +88,34 @@ export const getAllRooms = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+//Delete Room
+export const deleteRoom = async (req, res) => {
+  try {
+    const { roomId } = req.params;
+    const { password } = req.body;
+
+    if (!password) {
+      return res.status(400).json({ message: "Password required" });
+    }
+
+    const room = await Room.findOne({ roomId });
+
+    if (!room) {
+      return res.status(404).json({ message: "Room not found" });
+    }
+
+    if (room.password && room.password !== password) {
+      return res.status(401).json({ message: "Wrong password" });
+    }
+
+    await Room.deleteOne({ roomId });
+
+    res.status(200).json({
+      message: "Room deleted successfully",
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
