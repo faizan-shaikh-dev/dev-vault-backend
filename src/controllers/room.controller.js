@@ -1,4 +1,4 @@
-import Room from "../models/Room.js";
+import Room from "../models/Room.Modal.js";
 import generateRoomId from "../utils/generateRoomId.js";
 
 /* CREATE ROOM */
