@@ -1,13 +1,24 @@
 import express from "express";
 import cors from "cors";
+import roomRoutes from "./routes/room.routes.js";
 
 const app = express();
 
-app.use(cors({origin:"http://localhost:3000", credentials:true}));
+//MIDDLEWARE
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
-app.get('/', (req, res)=>{
-    res.send("Server is on");
+// ROUTES
+app.use("/api/rooms", roomRoutes);
+
+//HEALTH CHECK
+app.get("/", (req, res) => {
+  res.send("DevVault API running");
 });
 
 export default app;
