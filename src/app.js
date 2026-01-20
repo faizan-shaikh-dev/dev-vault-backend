@@ -6,12 +6,18 @@ const app = express();
 
 //MIDDLEWARE
 app.use(express.json());
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://devvault-app.up.railway.app",
+];
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: allowedOrigins,
     credentials: true,
   })
 );
+
 
 // ROUTES
 app.use("/api/rooms", roomRoutes);

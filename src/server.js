@@ -15,10 +15,14 @@ const server = http.createServer(app);
 //SOCKET.IO
 const io = new Server(server, {
   cors: {
-    origin: "https://devvault-app.up.railway.app",
+    origin: [
+      "http://localhost:3000",
+      "https://devvault-app.up.railway.app",
+    ],
     methods: ["GET", "POST"],
   },
 });
+
 
 //SOCKET LOGIC 
 io.on("connection", (socket) => {
