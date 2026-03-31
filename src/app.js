@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://devvault-app.up.railway.app",
+  "https://dev-vault-wheat.vercel.app/",
 ];
 
 app.use(
