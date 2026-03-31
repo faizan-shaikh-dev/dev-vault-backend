@@ -17,7 +17,7 @@ const io = new Server(server, {
   cors: {
     origin: [
       "http://localhost:3000",
-      "https://devvault-app.up.railway.app",
+      "https://dev-vault-tau.vercel.app/",
     ],
     methods: ["GET", "POST"],
   },
